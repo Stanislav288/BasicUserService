@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="#" th:action="@{/user/register}" th:object="${user}"
+	method="post" enctype="multipart/form-data">
+	<table>
+		<tr>
+			<td>Username:</td>
+			<td><input type="text" th:field="*{username}" /></td>
+			<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username
+				Error</td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><input type="text" th:field="*{email}" /></td>
+			<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
+				Error</td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" th:field="*{password}" /></td>
+		<!-- 	<td th:if="${#fields.hasErrors('global')}" th:errors="*{global}">Password
+				Error</td> -->
+			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+			Error</td>
+		</tr>
+		<tr>
+			<td>Confirm Password:</td>
+			<td><input type="password" th:field="*{confirmPassword}" /></td>
+			<!--   <td th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirm Password Error</td> -->
+		</tr>
+	<!-- 	<tr>
+			<td><input type="file" th:field="*{picture}" /></td>
+			<td th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}">Picture
+				Error</td>
+		</tr>
+		<tr>
+			<ul th:if="${#fields.hasErrors('*')}">
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}">
+						Input is incorrect
+					</li>
+				</ul>
+		</tr> -->
+		<tr>
+			<td><button type="submit">Submit</button></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

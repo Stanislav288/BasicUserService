@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="f" th:action="@{/user/login}" method="post"
+		th:object="${user}">
+		<fieldset>
+			<legend>Please Login</legend>
+
+			<!--  <div th:if="${param.error!=null}" class="alert alert-error" th:text="${param.error}">  -->
+			<!--  <div th:if="${error!=null}" class="alert alert-danger" role="alert"
+					th:text="${error}">- Invalid username and password.</div> -->
+			<!--  <div th:if="${param.logout}" class="alert alert-success"> 
+                    You have been logged out.
+                </div> -->
+
+			<div id="errors"
+				th:if="${(param.hasError != null) and (param.hasError[0] == 'true')}">
+				Invalid username or password.</div>
+
+			<label for="username">Username</label> <input type="text"
+				name="username" />
+			<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username
+				Error</div>
+
+			<label for="password">Password</label> <input type="password"
+				name="password" />
+			<!-- 	<div th:if="${#fields.hasErrors('password')}" th:errors="password">Password Error</div> -->
+			<div class="form-actions">
+				<button type="submit" class="btn">Log in</button>
+			</div>
+
+			<!--  <input type="hidden" name="${_csrf.parameterName}"
+                value="${_csrf.token}" /> -->
+
+		</fieldset>
+	</form>
+</body>
+</body>
+</html>
