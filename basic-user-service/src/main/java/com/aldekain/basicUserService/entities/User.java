@@ -1,6 +1,5 @@
 package com.aldekain.basicUserService.entities;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity

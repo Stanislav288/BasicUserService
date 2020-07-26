@@ -36,12 +36,12 @@ public class UserController {
 	
 	@PostMapping("/register")
 	public String postRegister(@Valid @ModelAttribute(name="user") UserRegister userRegister, BindingResult bindingResult) {
-		System.out.println("postRegister Part_1");
+		System.out.println("postRegister Part_1 ");
 		if (bindingResult.hasErrors()) {
 			//return "redirect:/user/user-register";
 			return "user/user-register";
 		}
-		System.out.println("postRegister Part_2");
+		System.out.println("postRegister Part_2 ");
 				
 		this.userService.register(userRegister);
 		

@@ -3,54 +3,44 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 </head>
-<body>
-<form action="#" th:action="@{/user/register}" th:object="${user}"
-	method="post" enctype="multipart/form-data">
-	<table>
-		<tr>
-			<td>Username:</td>
-			<td><input type="text" th:field="*{username}" /></td>
-			<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username
-				Error</td>
-		</tr>
-		<tr>
-			<td>Email:</td>
-			<td><input type="text" th:field="*{email}" /></td>
-			<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
-				Error</td>
-		</tr>
-		<tr>
-			<td>Password:</td>
-			<td><input type="password" th:field="*{password}" /></td>
-		<!-- 	<td th:if="${#fields.hasErrors('global')}" th:errors="*{global}">Password
+		<body>
+			<form action="#" th:action="@{/user/register}" th:object="${user}" method="post" enctype="multipart/form-data">
+				<div class="form-group col-xs-10 col-sm-8 col-md-6 col-lg-4">
+					<legend>Please Register</legend>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" th:field="*{username}" class="form-control" name="username"/>
+						<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</div>
+					</div>
+
+					<div class="form-group">	
+						<label for="email">Email</label>
+						<input type="text" th:field="*{email}" class="form-control" name="email"/>
+						<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+					</div>
+
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" th:field="*{password}" class="form-control" name="password"/>
+						<!-- 	<td th:if="${#fields.hasErrors('global')}" th:errors="*{global}">Password
 				Error</td> -->
-			<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
-			Error</td>
-		</tr>
-		<tr>
-			<td>Confirm Password:</td>
-			<td><input type="password" th:field="*{confirmPassword}" /></td>
-			<!--   <td th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirm Password Error</td> -->
-		</tr>
-	<!-- 	<tr>
-			<td><input type="file" th:field="*{picture}" /></td>
-			<td th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}">Picture
-				Error</td>
-		</tr>
-		<tr>
-			<ul th:if="${#fields.hasErrors('*')}">
-					<li th:each="err : ${#fields.errors('*')}" th:text="${err}">
-						Input is incorrect
-					</li>
-				</ul>
-		</tr> -->
-		<tr>
-			<td><button type="submit">Submit</button></td>
-		</tr>
-	</table>
-</form>
-</body>
-</html>
+						<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
+					</div>
+
+					<div class="form-group">
+						<label for="confirmPassword">Confirm Password</label>
+						<input type="password" th:field="*{confirmPassword}" class="form-control" name="confirmPassword"/>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary mr-3">Submit</button>
+					</div>
+				</div>
+			</form>
+		</body>
+	</html>

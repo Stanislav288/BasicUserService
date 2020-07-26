@@ -37,8 +37,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	.authorizeRequests()
 	.antMatchers("/", "/user/register", "/bootstrap/**", "/jquery/**").permitAll()
    // .antMatchers("/users/**").hasRole("USER")
-	.anyRequest().authenticated()	
+	.anyRequest().authenticated()
+	
 	.and()
+	
 	.formLogin().loginPage("/user/login").permitAll()
 	.usernameParameter("username")
 	.passwordParameter("password")

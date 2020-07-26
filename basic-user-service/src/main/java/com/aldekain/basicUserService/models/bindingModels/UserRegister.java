@@ -12,8 +12,7 @@ public class UserRegister {
 	@Size(min = 4, max = 20, message = "Username size must be between 4 and 20 symbols long")
 	private String username;
 	
-	//TODO: Add email validation
-	//@Email
+	@Email(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",message = "Email is not in valid format")
 	private String email;
 	
 	@Min(value=8,message="Passsword has to be atleast 8 symbols long")
