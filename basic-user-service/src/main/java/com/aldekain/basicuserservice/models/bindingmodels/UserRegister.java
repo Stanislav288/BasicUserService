@@ -1,10 +1,10 @@
-package com.aldekain.basicUserService.models.bindingModels;
+package com.aldekain.basicuserservice.models.bindingmodels;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
-import com.aldekain.basicUserService.annotations.PasswordMatches;
+import com.aldekain.basicuserservice.annotations.PasswordMatches;
 
 @PasswordMatches
 public class UserRegister {

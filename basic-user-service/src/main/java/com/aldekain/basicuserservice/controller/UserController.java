@@ -1,4 +1,4 @@
-package com.aldekain.basicUserService.controller;
+package com.aldekain.basicuserservice.controller;
 
 import javax.validation.Valid;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.aldekain.basicUserService.entities.User;
-import com.aldekain.basicUserService.models.bindingModels.UserLogin;
-import com.aldekain.basicUserService.models.bindingModels.UserRegister;
-import com.aldekain.basicUserService.service.UserService;
+import com.aldekain.basicuserservice.entities.User;
+import com.aldekain.basicuserservice.models.bindingmodels.UserLogin;
+import com.aldekain.basicuserservice.models.bindingmodels.UserRegister;
+import com.aldekain.basicuserservice.service.UserService;
 
 @Controller
 @RequestMapping("/user/*")

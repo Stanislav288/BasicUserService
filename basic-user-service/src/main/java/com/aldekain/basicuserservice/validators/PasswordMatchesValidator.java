@@ -1,10 +1,12 @@
-package com.aldekain.basicUserService.validators;
+package com.aldekain.basicuserservice.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.aldekain.basicUserService.annotations.PasswordMatches;
-import com.aldekain.basicUserService.models.bindingModels.UserRegister;
+import com.aldekain.basicuserservice.annotations.PasswordMatches;
+import com.aldekain.basicuserservice.models.bindingmodels.UserRegister;
+
+
 
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object>{
 

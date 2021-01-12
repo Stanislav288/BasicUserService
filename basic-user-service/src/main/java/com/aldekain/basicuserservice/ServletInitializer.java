@@ -1,4 +1,4 @@
-package com.aldekain.basicUserService;
+package com.aldekain.basicuserservice;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

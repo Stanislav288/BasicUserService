@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.aldekain</groupId>
-	<artifactId>basic-user-service</artifactId>
+	<artifactId>basicuserservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Basic User Service</name>

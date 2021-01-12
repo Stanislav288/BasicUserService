@@ -1,4 +1,4 @@
-package com.aldekain.basicUserService.configuration;
+package com.aldekain.basicuserservice.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.aldekain.basicUserService.service.UserService;
+import com.aldekain.basicuserservice.service.UserService;
 
 @Configuration
 @EnableWebSecurity

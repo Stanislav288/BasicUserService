@@ -1,4 +1,4 @@
-package com.aldekain.basicUserService.entities;
+package com.aldekain.basicuserservice.entities;
 
 import java.util.Set;
 

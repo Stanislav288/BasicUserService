@@ -1,4 +1,4 @@
-package com.aldekain.basicUserService.models.bindingModels;
+package com.aldekain.basicuserservice.models.bindingmodels;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;

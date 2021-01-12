@@ -1,20 +1,24 @@
-package com.aldekain.basicUserService.serviceImpl;
+package com.aldekain.basicuserservice.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.aldekain.basicUserService.entities.User;
-import com.aldekain.basicUserService.models.bindingModels.UserRegister;
-import com.aldekain.basicUserService.repository.UserRepository;
-import com.aldekain.basicUserService.service.UserService;
+import com.aldekain.basicuserservice.entities.User;
+import com.aldekain.basicuserservice.models.bindingmodels.UserRegister;
+import com.aldekain.basicuserservice.repository.UserRepository;
+import com.aldekain.basicuserservice.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -26,7 +30,7 @@ public class UserServiceImpl implements UserService{
 		
 		User user =  new User();
 		user.setUsername(userRegister.getUsername());
-		user.setPassword(userRegister.getPassword());
+		user.setPassword(passwordEncoder.encode(userRegister.getPassword()));
 		user.setEmail(userRegister.getEmail());
 		
 		this.userRepository.saveAndFlush(user);

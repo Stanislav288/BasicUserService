@@ -1,10 +1,11 @@
-package com.aldekain.basicUserService.service;
+package com.aldekain.basicuserservice.service;
 
 import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
-import com.aldekain.basicUserService.entities.User;
-import com.aldekain.basicUserService.models.bindingModels.UserRegister;
+
+import com.aldekain.basicuserservice.entities.User;
+import com.aldekain.basicuserservice.models.bindingmodels.UserRegister;
 
 public interface UserService extends  UserDetailsService{
 

@@ -1,4 +1,4 @@
-package com.aldekain.basicUserService.annotations;
+package com.aldekain.basicuserservice.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.aldekain.basicUserService.validators.PasswordMatchesValidator;
+import com.aldekain.basicuserservice.validators.PasswordMatchesValidator;
 
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
