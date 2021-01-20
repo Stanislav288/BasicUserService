@@ -1,5 +1,7 @@
 package com.aldekain.basicuserservice.controller;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.aldekain.basicuserservice.entities.User;
 import com.aldekain.basicuserservice.models.bindingmodels.UserLogin;
 import com.aldekain.basicuserservice.models.bindingmodels.UserRegister;
+import com.aldekain.basicuserservice.models.viewmodels.UserProfile;
 import com.aldekain.basicuserservice.service.UserService;
 
 @Controller
@@ -34,7 +37,7 @@ public class UserController {
 		return "user/user-register";
 	}
 	
-	@PostMapping("/register")
+	@PostMapping("register")
 	public String postRegister(@Valid @ModelAttribute(name="user") UserRegister userRegister, BindingResult bindingResult) {
 		System.out.println("postRegister Part_1 ");
 		if (bindingResult.hasErrors()) {
@@ -49,7 +52,7 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("login")
 	public String getLoginPage(Model model,@RequestParam(required = false) boolean hasError) {
 //	public String getLoginPage(@ModelAttribute(name="user") UserLoginViewModel user,@RequestParam(required = false) boolean hasError, Model model) {
 //		if (error != null) {
@@ -69,12 +72,36 @@ public class UserController {
 		return "user/login";
 	}
 	
-	@PostMapping("/login")
-	public String postLogin(Model model,@Valid UserLogin userLogin, BindingResult bindingResult,RedirectAttributes redirectAttributes) {
-		if (bindingResult.hasErrors()) {
-			return "users/login";
-		}
+//	@PostMapping("login")
+//	public String postLogin(Model model,@Valid UserLogin userLogin, BindingResult bindingResult,RedirectAttributes redirectAttributes) {
+//		System.out.println("postLogin");
+//		
+//		if (bindingResult.hasErrors()) {
+//			return "users/login";
+//		}
+//	
+//		return "redirect:/user/profile";
+//	}
 	
-		return "user/login-successful";
+	@GetMapping("profile")
+	public String getProfile(Model model, Principal principal) {
+		System.out.println(principal.getClass());
+		System.out.println(principal.getName());
+		
+		
+		User user = (User) this.userService.loadUserByUsername(principal.getName());
+		
+		UserProfile userProfile = new UserProfile();
+		userProfile.setId(user.getId());
+		userProfile.setUsername(user.getUsername());
+		userProfile.setEmail(user.getEmail());
+		/*
+		 * userProfile.setId(principal.get); userProfile.setUsername(username);
+		 * userProfile.setEmail(email);
+		 */
+		
+		model.addAttribute("user", userProfile);
+		  
+		return "user/user-profile";
 	}
 }
